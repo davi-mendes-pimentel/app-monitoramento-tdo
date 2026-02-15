@@ -6,6 +6,10 @@ RUN install_packages \
     git \
     unzip
 
+RUN install_packages nginx
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
 # RUN install_packages \
 #     php-mysql \
 #     php-gd \
@@ -26,6 +30,7 @@ RUN chown -R 1001:1001 /opt/bitnami/php \
 
 USER 1001
 
-EXPOSE 9000
+EXPOSE 80
 
-CMD ["php-fpm", "-F"]
+CMD php-fpm -D && nginx -g "daemon off;"
+

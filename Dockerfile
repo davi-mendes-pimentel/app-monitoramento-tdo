@@ -32,5 +32,5 @@ USER 1001
 
 EXPOSE 80
 
-CMD composer install && php-fpm -D && nginx -g "daemon off;"
+CMD composer install && php artisan migrate && php-fpm -D && nginx -g "daemon off;"
 

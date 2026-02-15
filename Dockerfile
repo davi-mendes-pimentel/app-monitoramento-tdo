@@ -4,10 +4,7 @@ USER root
 
 RUN install_packages \
     git \
-    unzip \
-    libpng-dev \
-    libjpeg-dev \
-    libwebp-dev
+    unzip
 
 RUN docker-php-ext-install \
     pdo \
